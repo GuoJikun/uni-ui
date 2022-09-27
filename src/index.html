@@ -12,6 +12,12 @@
 <body>
   <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
   <uni-button type="primary">default</uni-button>
+  <uni-pager default="2" id="pager"></uni-pager>
 </body>
+<script>
+  document.querySelector('#pager').addEventListener('pageChange', ev => {
+    console.log(ev)
+  })
+</script>
 
 </html>
