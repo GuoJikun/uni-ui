@@ -1,7 +1,7 @@
 :host {
   display: flex;
   line-height: 30px;
-  font-size: var(--font-size, 14px);
+  font-size: var(--uni-font-size, 14px);
 }
 ul {
   list-style: none;
@@ -21,10 +21,10 @@ ul {
   user-select: none;
 }
 .pager-item:hover {
-  color: blueviolet;
+  color: var(--uni-color-primary, #409eff);
 }
 .pager-item-active {
-  color: blueviolet;
+  color: var(--uni-color-primary, #409eff);
   cursor: default;
 }
 
@@ -33,5 +33,5 @@ ul {
   user-select: none;
 }
 .pager-btn:hover {
-  color: blueviolet;
+  color: var(--uni-color-primary, #409eff);
 }

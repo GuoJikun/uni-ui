@@ -6,22 +6,13 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
     interface UniButton {
         "type": string;
+    }
+    interface UniCard {
+        "header": string;
+    }
+    interface UniDivider {
     }
     interface UniPager {
         "defaultPage": string;
@@ -33,17 +24,23 @@ export interface UniPagerCustomEvent<T> extends CustomEvent<T> {
     target: HTMLUniPagerElement;
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLUniButtonElement extends Components.UniButton, HTMLStencilElement {
     }
     var HTMLUniButtonElement: {
         prototype: HTMLUniButtonElement;
         new (): HTMLUniButtonElement;
+    };
+    interface HTMLUniCardElement extends Components.UniCard, HTMLStencilElement {
+    }
+    var HTMLUniCardElement: {
+        prototype: HTMLUniCardElement;
+        new (): HTMLUniCardElement;
+    };
+    interface HTMLUniDividerElement extends Components.UniDivider, HTMLStencilElement {
+    }
+    var HTMLUniDividerElement: {
+        prototype: HTMLUniDividerElement;
+        new (): HTMLUniDividerElement;
     };
     interface HTMLUniPagerElement extends Components.UniPager, HTMLStencilElement {
     }
@@ -52,28 +49,20 @@ declare global {
         new (): HTMLUniPagerElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
         "uni-button": HTMLUniButtonElement;
+        "uni-card": HTMLUniCardElement;
+        "uni-divider": HTMLUniDividerElement;
         "uni-pager": HTMLUniPagerElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface UniButton {
         "type"?: string;
+    }
+    interface UniCard {
+        "header"?: string;
+    }
+    interface UniDivider {
     }
     interface UniPager {
         "defaultPage"?: string;
@@ -81,8 +70,9 @@ declare namespace LocalJSX {
         "onPageChange"?: (event: UniPagerCustomEvent<string>) => void;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
         "uni-button": UniButton;
+        "uni-card": UniCard;
+        "uni-divider": UniDivider;
         "uni-pager": UniPager;
     }
 }
@@ -90,8 +80,9 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "uni-button": LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
+            "uni-card": LocalJSX.UniCard & JSXBase.HTMLAttributes<HTMLUniCardElement>;
+            "uni-divider": LocalJSX.UniDivider & JSXBase.HTMLAttributes<HTMLUniDividerElement>;
             "uni-pager": LocalJSX.UniPager & JSXBase.HTMLAttributes<HTMLUniPagerElement>;
         }
     }

@@ -8,7 +8,12 @@ import { Component, Host, h, Prop, Event, EventEmitter, State, Watch } from '@st
 export class UniPager {
   @Prop() layout: string = 'prev,pager,next';
 
-  @Prop() defaultPage: string = '1';
+  @Prop({
+    attribute: 'defaultPage',
+    mutable: true,
+    reflect: true,
+  })
+  defaultPage: string = '1';
 
   @State() currentPage = '1';
 
@@ -16,19 +21,20 @@ export class UniPager {
   @State() pageCount = 7;
 
   @Watch('defaultPage')
-  watchPropHandler(newVal: string, oldVal: string) {
-    console.log('The old value of busy is: ', oldVal);
-    console.log('The new value of busy is: ', newVal);
+  watchPropHandler(newVal: string) {
+    this.currentPage = newVal;
+  }
+
+  connectedCallback() {
+    this.currentPage = this.defaultPage;
   }
 
   @Watch('currentPage')
   watchStateHandler(newVal: string, oldVal: string) {
-    console.log('The old value of busy is: ', oldVal);
-    console.log('The new value of busy is: ', newVal);
     const cur = parseInt(newVal);
     const remainder = cur % this.pageCount;
     if (remainder === 0) {
-      if (this.startPage === cur) {
+      if (this.startPage === cur && oldVal > newVal) {
         this.startPage = cur - this.pageCount + 1;
       } else {
         this.startPage = cur;
@@ -44,16 +50,6 @@ export class UniPager {
   })
   pageChange: EventEmitter<string>;
   pageChangedHandler(curPage) {
-    // const cur = parseInt(curPage);
-    // const remainder = cur % this.pageCount;
-    // console.log(`余数是${remainder}`, cur);
-    // if (remainder === 0) {
-    //   if (this.startPage === cur) {
-    //     this.startPage = cur - this.pageCount + 1;
-    //   } else {
-    //     this.startPage = cur;
-    //   }
-    // }
     if (this.currentPage != curPage) {
       this.currentPage = curPage;
       const event = this.pageChange.emit(curPage);
@@ -67,11 +63,9 @@ export class UniPager {
     return new Array(count).fill(start).map((c, i) => {
       const curPage: number = i + c;
       const className = ['pager-item'];
-      console.log(this.currentPage, curPage);
       if (this.currentPage == curPage.toString()) {
         className.push('pager-item-active');
       }
-      console.log(className);
       return (
         <li
           class={className.join(' ')}
