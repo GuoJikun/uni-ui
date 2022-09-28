@@ -14,6 +14,8 @@ export namespace Components {
     }
     interface UniDivider {
     }
+    interface UniEmpty {
+    }
     interface UniPager {
         "defaultPage": string;
         "layout": string;
@@ -47,6 +49,12 @@ declare global {
         prototype: HTMLUniDividerElement;
         new (): HTMLUniDividerElement;
     };
+    interface HTMLUniEmptyElement extends Components.UniEmpty, HTMLStencilElement {
+    }
+    var HTMLUniEmptyElement: {
+        prototype: HTMLUniEmptyElement;
+        new (): HTMLUniEmptyElement;
+    };
     interface HTMLUniPagerElement extends Components.UniPager, HTMLStencilElement {
     }
     var HTMLUniPagerElement: {
@@ -63,6 +71,7 @@ declare global {
         "uni-button": HTMLUniButtonElement;
         "uni-card": HTMLUniCardElement;
         "uni-divider": HTMLUniDividerElement;
+        "uni-empty": HTMLUniEmptyElement;
         "uni-pager": HTMLUniPagerElement;
         "uni-tag": HTMLUniTagElement;
     }
@@ -75,6 +84,8 @@ declare namespace LocalJSX {
         "header"?: string;
     }
     interface UniDivider {
+    }
+    interface UniEmpty {
     }
     interface UniPager {
         "defaultPage"?: string;
@@ -90,6 +101,7 @@ declare namespace LocalJSX {
         "uni-button": UniButton;
         "uni-card": UniCard;
         "uni-divider": UniDivider;
+        "uni-empty": UniEmpty;
         "uni-pager": UniPager;
         "uni-tag": UniTag;
     }
@@ -101,6 +113,7 @@ declare module "@stencil/core" {
             "uni-button": LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
             "uni-card": LocalJSX.UniCard & JSXBase.HTMLAttributes<HTMLUniCardElement>;
             "uni-divider": LocalJSX.UniDivider & JSXBase.HTMLAttributes<HTMLUniDividerElement>;
+            "uni-empty": LocalJSX.UniEmpty & JSXBase.HTMLAttributes<HTMLUniEmptyElement>;
             "uni-pager": LocalJSX.UniPager & JSXBase.HTMLAttributes<HTMLUniPagerElement>;
             "uni-tag": LocalJSX.UniTag & JSXBase.HTMLAttributes<HTMLUniTagElement>;
         }
