@@ -18,6 +18,11 @@ export namespace Components {
         "defaultPage": string;
         "layout": string;
     }
+    interface UniTag {
+        "size": string;
+        "theme": string;
+        "type": string;
+    }
 }
 export interface UniPagerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -48,11 +53,18 @@ declare global {
         prototype: HTMLUniPagerElement;
         new (): HTMLUniPagerElement;
     };
+    interface HTMLUniTagElement extends Components.UniTag, HTMLStencilElement {
+    }
+    var HTMLUniTagElement: {
+        prototype: HTMLUniTagElement;
+        new (): HTMLUniTagElement;
+    };
     interface HTMLElementTagNameMap {
         "uni-button": HTMLUniButtonElement;
         "uni-card": HTMLUniCardElement;
         "uni-divider": HTMLUniDividerElement;
         "uni-pager": HTMLUniPagerElement;
+        "uni-tag": HTMLUniTagElement;
     }
 }
 declare namespace LocalJSX {
@@ -69,11 +81,17 @@ declare namespace LocalJSX {
         "layout"?: string;
         "onPageChange"?: (event: UniPagerCustomEvent<string>) => void;
     }
+    interface UniTag {
+        "size"?: string;
+        "theme"?: string;
+        "type"?: string;
+    }
     interface IntrinsicElements {
         "uni-button": UniButton;
         "uni-card": UniCard;
         "uni-divider": UniDivider;
         "uni-pager": UniPager;
+        "uni-tag": UniTag;
     }
 }
 export { LocalJSX as JSX };
@@ -84,6 +102,7 @@ declare module "@stencil/core" {
             "uni-card": LocalJSX.UniCard & JSXBase.HTMLAttributes<HTMLUniCardElement>;
             "uni-divider": LocalJSX.UniDivider & JSXBase.HTMLAttributes<HTMLUniDividerElement>;
             "uni-pager": LocalJSX.UniPager & JSXBase.HTMLAttributes<HTMLUniPagerElement>;
+            "uni-tag": LocalJSX.UniTag & JSXBase.HTMLAttributes<HTMLUniTagElement>;
         }
     }
 }
