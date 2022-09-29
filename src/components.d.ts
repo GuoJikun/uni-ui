@@ -25,6 +25,12 @@ export namespace Components {
         "theme": string;
         "type": string;
     }
+    interface UniTimeline {
+        "reverse": boolean;
+    }
+    interface UniTimelineItem {
+        "timestamp": string;
+    }
 }
 export interface UniPagerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -67,6 +73,18 @@ declare global {
         prototype: HTMLUniTagElement;
         new (): HTMLUniTagElement;
     };
+    interface HTMLUniTimelineElement extends Components.UniTimeline, HTMLStencilElement {
+    }
+    var HTMLUniTimelineElement: {
+        prototype: HTMLUniTimelineElement;
+        new (): HTMLUniTimelineElement;
+    };
+    interface HTMLUniTimelineItemElement extends Components.UniTimelineItem, HTMLStencilElement {
+    }
+    var HTMLUniTimelineItemElement: {
+        prototype: HTMLUniTimelineItemElement;
+        new (): HTMLUniTimelineItemElement;
+    };
     interface HTMLElementTagNameMap {
         "uni-button": HTMLUniButtonElement;
         "uni-card": HTMLUniCardElement;
@@ -74,6 +92,8 @@ declare global {
         "uni-empty": HTMLUniEmptyElement;
         "uni-pager": HTMLUniPagerElement;
         "uni-tag": HTMLUniTagElement;
+        "uni-timeline": HTMLUniTimelineElement;
+        "uni-timeline-item": HTMLUniTimelineItemElement;
     }
 }
 declare namespace LocalJSX {
@@ -97,6 +117,12 @@ declare namespace LocalJSX {
         "theme"?: string;
         "type"?: string;
     }
+    interface UniTimeline {
+        "reverse"?: boolean;
+    }
+    interface UniTimelineItem {
+        "timestamp"?: string;
+    }
     interface IntrinsicElements {
         "uni-button": UniButton;
         "uni-card": UniCard;
@@ -104,6 +130,8 @@ declare namespace LocalJSX {
         "uni-empty": UniEmpty;
         "uni-pager": UniPager;
         "uni-tag": UniTag;
+        "uni-timeline": UniTimeline;
+        "uni-timeline-item": UniTimelineItem;
     }
 }
 export { LocalJSX as JSX };
@@ -116,6 +144,8 @@ declare module "@stencil/core" {
             "uni-empty": LocalJSX.UniEmpty & JSXBase.HTMLAttributes<HTMLUniEmptyElement>;
             "uni-pager": LocalJSX.UniPager & JSXBase.HTMLAttributes<HTMLUniPagerElement>;
             "uni-tag": LocalJSX.UniTag & JSXBase.HTMLAttributes<HTMLUniTagElement>;
+            "uni-timeline": LocalJSX.UniTimeline & JSXBase.HTMLAttributes<HTMLUniTimelineElement>;
+            "uni-timeline-item": LocalJSX.UniTimelineItem & JSXBase.HTMLAttributes<HTMLUniTimelineItemElement>;
         }
     }
 }
