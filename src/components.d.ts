@@ -6,6 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface UniBadge {
+        "isDot": boolean;
+        "max": string;
+        "type": string;
+        "value": string;
+    }
     interface UniButton {
         "type": string;
     }
@@ -31,12 +37,22 @@ export namespace Components {
     interface UniTimelineItem {
         "timestamp": string;
     }
+    interface UniTip {
+        "name": string;
+        "type": string;
+    }
 }
 export interface UniPagerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLUniPagerElement;
 }
 declare global {
+    interface HTMLUniBadgeElement extends Components.UniBadge, HTMLStencilElement {
+    }
+    var HTMLUniBadgeElement: {
+        prototype: HTMLUniBadgeElement;
+        new (): HTMLUniBadgeElement;
+    };
     interface HTMLUniButtonElement extends Components.UniButton, HTMLStencilElement {
     }
     var HTMLUniButtonElement: {
@@ -85,7 +101,14 @@ declare global {
         prototype: HTMLUniTimelineItemElement;
         new (): HTMLUniTimelineItemElement;
     };
+    interface HTMLUniTipElement extends Components.UniTip, HTMLStencilElement {
+    }
+    var HTMLUniTipElement: {
+        prototype: HTMLUniTipElement;
+        new (): HTMLUniTipElement;
+    };
     interface HTMLElementTagNameMap {
+        "uni-badge": HTMLUniBadgeElement;
         "uni-button": HTMLUniButtonElement;
         "uni-card": HTMLUniCardElement;
         "uni-divider": HTMLUniDividerElement;
@@ -94,9 +117,16 @@ declare global {
         "uni-tag": HTMLUniTagElement;
         "uni-timeline": HTMLUniTimelineElement;
         "uni-timeline-item": HTMLUniTimelineItemElement;
+        "uni-tip": HTMLUniTipElement;
     }
 }
 declare namespace LocalJSX {
+    interface UniBadge {
+        "isDot"?: boolean;
+        "max"?: string;
+        "type"?: string;
+        "value"?: string;
+    }
     interface UniButton {
         "type"?: string;
     }
@@ -123,7 +153,12 @@ declare namespace LocalJSX {
     interface UniTimelineItem {
         "timestamp"?: string;
     }
+    interface UniTip {
+        "name"?: string;
+        "type"?: string;
+    }
     interface IntrinsicElements {
+        "uni-badge": UniBadge;
         "uni-button": UniButton;
         "uni-card": UniCard;
         "uni-divider": UniDivider;
@@ -132,12 +167,14 @@ declare namespace LocalJSX {
         "uni-tag": UniTag;
         "uni-timeline": UniTimeline;
         "uni-timeline-item": UniTimelineItem;
+        "uni-tip": UniTip;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "uni-badge": LocalJSX.UniBadge & JSXBase.HTMLAttributes<HTMLUniBadgeElement>;
             "uni-button": LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
             "uni-card": LocalJSX.UniCard & JSXBase.HTMLAttributes<HTMLUniCardElement>;
             "uni-divider": LocalJSX.UniDivider & JSXBase.HTMLAttributes<HTMLUniDividerElement>;
@@ -146,6 +183,7 @@ declare module "@stencil/core" {
             "uni-tag": LocalJSX.UniTag & JSXBase.HTMLAttributes<HTMLUniTagElement>;
             "uni-timeline": LocalJSX.UniTimeline & JSXBase.HTMLAttributes<HTMLUniTimelineElement>;
             "uni-timeline-item": LocalJSX.UniTimelineItem & JSXBase.HTMLAttributes<HTMLUniTimelineItemElement>;
+            "uni-tip": LocalJSX.UniTip & JSXBase.HTMLAttributes<HTMLUniTipElement>;
         }
     }
 }

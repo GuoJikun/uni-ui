@@ -7,11 +7,16 @@
   <style>
     html {
       font-size: 10px;
+      margin: 0;
     }
 
     body {
       font-size: 1.4rem;
       line-height: 1.6em;
+      width: 800px;
+      margin: 0 auto;
+      background-color: #efefef;
+      min-height: 100vh;
     }
 
     p,
@@ -27,94 +32,31 @@
     .uni-margin-top {
       margin-top: 12px;
     }
+
+    .uni-margin-left {
+      margin-left: 12px;
+    }
+
+    .uni-margin-left-large {
+      margin-left: 12px;
+    }
   </style>
   <script type="module" src="/build/uni.esm.js"></script>
   <script nomodule src="/build/uni.js"></script>
 </head>
 
 <body>
-  <uni-button type="primary">default</uni-button>
-  <uni-pager defaultPage="2" id="pager"></uni-pager>
-  <uni-card header="卡片头部" style="width: 240px" shadow>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-  </uni-card>
+  <div class="uni-margin-top"></div>
+  <uni-badge class="uni-margin-left" type="primary" value="22">
+    <button>test</button>
+  </uni-badge>
+  <uni-badge class="uni-margin-left" type="success" value="100"><button>test</button></uni-badge>
+  <uni-badge class="uni-margin-left" type="warning" value="new"><button>test</button></uni-badge>
+  <uni-badge class="uni-margin-left" type="danger"><button>test</button></uni-badge>
+  <uni-badge class="uni-margin-left" type="info"><button>test</button></uni-badge>
 
-  <uni-card header="卡片头部" style="width: 240px" shadow>
-    <div style="display:flex;justify-content: space-between;align-items: flex-end;" slot="header">
-      <h2 style="margin: 0">卡片头部</h2>
-      <div>
-        <button>extra</button>
-      </div>
-    </div>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-    <p>卡片内容</p>
-  </uni-card>
-
-
-  <div class="uni-margin-top">
-    <div>
-      <uni-timeline>
-        <uni-timeline-item timestamp="2020-8-12"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-9-12"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-10-12"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-11-12"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-12-12"> 本周美国大选公布结果 </uni-timeline-item>
-      </uni-timeline>
-    </div>
-    <div class="uni-margin-top">
-      <uni-timeline reverse>
-        <uni-timeline-item timestamp="2020-8-12"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-9-12"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-10-12"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-11-12"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-12-12"> 本周美国大选公布结果 </uni-timeline-item>
-      </uni-timeline>
-    </div>
-
-    <div class="uni-margin-top">
-      <uni-timeline>
-        <uni-timeline-item timestamp="2020-8-12" hide-timestamp type="primary"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-9-12" type="success"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-10-12" type="warning"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-11-12" type="danger"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-12-12"> 本周美国大选公布结果 </uni-timeline-item>
-      </uni-timeline>
-    </div>
-    <div class="uni-margin-top">
-      <uni-timeline>
-        <uni-timeline-item timestamp="2020-8-12" hide-timestamp> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-9-12"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-10-12"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-11-12"> 本周美国大选公布结果 </uni-timeline-item>
-        <uni-timeline-item timestamp="2020-12-12"> 本周美国大选公布结果 </uni-timeline-item>
-      </uni-timeline>
-    </div>
-  </div>
-  <div class="uni-margin-top">
-    <uni-empty>内容为空</uni-empty>
-  </div>
+  <uni-badge class="uni-margin-left" is-dot><button>test</button></uni-badge>
 </body>
-<script>
-  document.querySelector('#pager').addEventListener('pageChange', ev => {
-    console.log(ev.detail)
-  })
-</script>
+
 
 </html>
