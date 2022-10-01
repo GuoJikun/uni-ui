@@ -18,6 +18,14 @@ export namespace Components {
     interface UniCard {
         "header": string;
     }
+    interface UniCollapse {
+        "active": string;
+    }
+    interface UniCollapseItem {
+        "active": string;
+        "index": string;
+        "name": string;
+    }
     interface UniDivider {
     }
     interface UniEmpty {
@@ -65,6 +73,18 @@ declare global {
         prototype: HTMLUniCardElement;
         new (): HTMLUniCardElement;
     };
+    interface HTMLUniCollapseElement extends Components.UniCollapse, HTMLStencilElement {
+    }
+    var HTMLUniCollapseElement: {
+        prototype: HTMLUniCollapseElement;
+        new (): HTMLUniCollapseElement;
+    };
+    interface HTMLUniCollapseItemElement extends Components.UniCollapseItem, HTMLStencilElement {
+    }
+    var HTMLUniCollapseItemElement: {
+        prototype: HTMLUniCollapseItemElement;
+        new (): HTMLUniCollapseItemElement;
+    };
     interface HTMLUniDividerElement extends Components.UniDivider, HTMLStencilElement {
     }
     var HTMLUniDividerElement: {
@@ -111,6 +131,8 @@ declare global {
         "uni-badge": HTMLUniBadgeElement;
         "uni-button": HTMLUniButtonElement;
         "uni-card": HTMLUniCardElement;
+        "uni-collapse": HTMLUniCollapseElement;
+        "uni-collapse-item": HTMLUniCollapseItemElement;
         "uni-divider": HTMLUniDividerElement;
         "uni-empty": HTMLUniEmptyElement;
         "uni-pager": HTMLUniPagerElement;
@@ -132,6 +154,14 @@ declare namespace LocalJSX {
     }
     interface UniCard {
         "header"?: string;
+    }
+    interface UniCollapse {
+        "active"?: string;
+    }
+    interface UniCollapseItem {
+        "active"?: string;
+        "index"?: string;
+        "name"?: string;
     }
     interface UniDivider {
     }
@@ -161,6 +191,8 @@ declare namespace LocalJSX {
         "uni-badge": UniBadge;
         "uni-button": UniButton;
         "uni-card": UniCard;
+        "uni-collapse": UniCollapse;
+        "uni-collapse-item": UniCollapseItem;
         "uni-divider": UniDivider;
         "uni-empty": UniEmpty;
         "uni-pager": UniPager;
@@ -177,6 +209,8 @@ declare module "@stencil/core" {
             "uni-badge": LocalJSX.UniBadge & JSXBase.HTMLAttributes<HTMLUniBadgeElement>;
             "uni-button": LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
             "uni-card": LocalJSX.UniCard & JSXBase.HTMLAttributes<HTMLUniCardElement>;
+            "uni-collapse": LocalJSX.UniCollapse & JSXBase.HTMLAttributes<HTMLUniCollapseElement>;
+            "uni-collapse-item": LocalJSX.UniCollapseItem & JSXBase.HTMLAttributes<HTMLUniCollapseItemElement>;
             "uni-divider": LocalJSX.UniDivider & JSXBase.HTMLAttributes<HTMLUniDividerElement>;
             "uni-empty": LocalJSX.UniEmpty & JSXBase.HTMLAttributes<HTMLUniEmptyElement>;
             "uni-pager": LocalJSX.UniPager & JSXBase.HTMLAttributes<HTMLUniPagerElement>;
