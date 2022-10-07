@@ -26,6 +26,8 @@ export namespace Components {
         "index": string;
         "name": string;
     }
+    interface UniDialog {
+    }
     interface UniDivider {
     }
     interface UniEmpty {
@@ -85,6 +87,12 @@ declare global {
         prototype: HTMLUniCollapseItemElement;
         new (): HTMLUniCollapseItemElement;
     };
+    interface HTMLUniDialogElement extends Components.UniDialog, HTMLStencilElement {
+    }
+    var HTMLUniDialogElement: {
+        prototype: HTMLUniDialogElement;
+        new (): HTMLUniDialogElement;
+    };
     interface HTMLUniDividerElement extends Components.UniDivider, HTMLStencilElement {
     }
     var HTMLUniDividerElement: {
@@ -133,6 +141,7 @@ declare global {
         "uni-card": HTMLUniCardElement;
         "uni-collapse": HTMLUniCollapseElement;
         "uni-collapse-item": HTMLUniCollapseItemElement;
+        "uni-dialog": HTMLUniDialogElement;
         "uni-divider": HTMLUniDividerElement;
         "uni-empty": HTMLUniEmptyElement;
         "uni-pager": HTMLUniPagerElement;
@@ -162,6 +171,8 @@ declare namespace LocalJSX {
         "active"?: string;
         "index"?: string;
         "name"?: string;
+    }
+    interface UniDialog {
     }
     interface UniDivider {
     }
@@ -193,6 +204,7 @@ declare namespace LocalJSX {
         "uni-card": UniCard;
         "uni-collapse": UniCollapse;
         "uni-collapse-item": UniCollapseItem;
+        "uni-dialog": UniDialog;
         "uni-divider": UniDivider;
         "uni-empty": UniEmpty;
         "uni-pager": UniPager;
@@ -211,6 +223,7 @@ declare module "@stencil/core" {
             "uni-card": LocalJSX.UniCard & JSXBase.HTMLAttributes<HTMLUniCardElement>;
             "uni-collapse": LocalJSX.UniCollapse & JSXBase.HTMLAttributes<HTMLUniCollapseElement>;
             "uni-collapse-item": LocalJSX.UniCollapseItem & JSXBase.HTMLAttributes<HTMLUniCollapseItemElement>;
+            "uni-dialog": LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
             "uni-divider": LocalJSX.UniDivider & JSXBase.HTMLAttributes<HTMLUniDividerElement>;
             "uni-empty": LocalJSX.UniEmpty & JSXBase.HTMLAttributes<HTMLUniEmptyElement>;
             "uni-pager": LocalJSX.UniPager & JSXBase.HTMLAttributes<HTMLUniPagerElement>;
