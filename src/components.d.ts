@@ -27,6 +27,9 @@ export namespace Components {
         "name": string;
     }
     interface UniDialog {
+        "close": () => Promise<void>;
+        "open": () => Promise<void>;
+        "visible": Boolean;
     }
     interface UniDivider {
     }
@@ -173,6 +176,7 @@ declare namespace LocalJSX {
         "name"?: string;
     }
     interface UniDialog {
+        "visible"?: Boolean;
     }
     interface UniDivider {
     }
