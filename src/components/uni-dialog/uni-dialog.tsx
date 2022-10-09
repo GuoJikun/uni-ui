@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Method, Watch, Event, EventEmitter } from '@stencil/core';
+import { Component, Host, h, Prop, Method, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'uni-dialog',
@@ -13,14 +13,14 @@ export class UniDialog {
   })
   visible: Boolean = false;
 
-  @Watch('visible')
-  visibleHandler(val, oldVal) {
-    console.log(val, oldVal);
-  }
-
   @Event() closed: EventEmitter<string>;
   closeHandler(type: string) {
     this.closed.emit(type);
+  }
+
+  @Event() sure: EventEmitter<string>;
+  sureHandler() {
+    this.sure.emit();
   }
 
   render() {
@@ -39,7 +39,7 @@ export class UniDialog {
               <button class="ivy-modal-button ivy-modal-button-cancel" onClick={this.cancel.bind(this)}>
                 取消
               </button>
-              <button class="ivy-modal-button ivy-modal-button-primary" onClick={this.cancel.bind(this)}>
+              <button class="ivy-modal-button ivy-modal-button-primary" onClick={this.sureEventHandler.bind(this)}>
                 确定
               </button>
             </slot>
@@ -55,13 +55,16 @@ export class UniDialog {
   }
   @Method()
   async close() {
-    console.log(111, this.visible);
     this.closeHandler('close');
     this.visible = false;
   }
 
+  sureEventHandler() {
+    this.sureHandler();
+    this.visible = false;
+  }
+
   cancel() {
-    console.log(111, this.visible);
     this.closeHandler('cancel');
     this.visible = false;
   }

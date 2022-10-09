@@ -181,6 +181,7 @@ declare namespace LocalJSX {
     }
     interface UniDialog {
         "onClosed"?: (event: UniDialogCustomEvent<string>) => void;
+        "onSure"?: (event: UniDialogCustomEvent<string>) => void;
         "visible"?: Boolean;
     }
     interface UniDivider {

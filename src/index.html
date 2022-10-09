@@ -58,6 +58,14 @@
   document.querySelector('#btn').addEventListener('click', () => {
     document.querySelector('#test').open()
   })
+
+  document.querySelector('#test').addEventListener('closed', (ev) => {
+    console.log(ev.detail)
+  })
+
+  document.querySelector('#test').addEventListener('sure', (ev) => {
+    console.log('sure事件')
+  })
 </script>
 
 </html>
