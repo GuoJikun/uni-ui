@@ -55,6 +55,10 @@ export namespace Components {
         "type": string;
     }
 }
+export interface UniDialogCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUniDialogElement;
+}
 export interface UniPagerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLUniPagerElement;
@@ -176,6 +180,7 @@ declare namespace LocalJSX {
         "name"?: string;
     }
     interface UniDialog {
+        "onClosed"?: (event: UniDialogCustomEvent<string>) => void;
         "visible"?: Boolean;
     }
     interface UniDivider {
