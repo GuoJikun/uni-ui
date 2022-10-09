@@ -12,6 +12,15 @@ export namespace Components {
         "type": string;
         "value": string;
     }
+    interface UniBreadcrumb {
+        "separator": string;
+    }
+    interface UniBreadcrumbItem {
+        "blank": boolean;
+        "href": string;
+        "separator": string;
+        "setSeparator": (val: string) => Promise<void>;
+    }
     interface UniButton {
         "type": string;
     }
@@ -32,6 +41,15 @@ export namespace Components {
         "visible": Boolean;
     }
     interface UniDivider {
+    }
+    interface UniDrawer {
+        "close": () => Promise<void>;
+        "maskClosable": boolean;
+        "open": () => Promise<void>;
+        "placement": string;
+        "showHeader": boolean;
+        "visible": Boolean;
+        "width": string;
     }
     interface UniEmpty {
     }
@@ -59,6 +77,10 @@ export interface UniDialogCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLUniDialogElement;
 }
+export interface UniDrawerCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUniDrawerElement;
+}
 export interface UniPagerCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLUniPagerElement;
@@ -69,6 +91,18 @@ declare global {
     var HTMLUniBadgeElement: {
         prototype: HTMLUniBadgeElement;
         new (): HTMLUniBadgeElement;
+    };
+    interface HTMLUniBreadcrumbElement extends Components.UniBreadcrumb, HTMLStencilElement {
+    }
+    var HTMLUniBreadcrumbElement: {
+        prototype: HTMLUniBreadcrumbElement;
+        new (): HTMLUniBreadcrumbElement;
+    };
+    interface HTMLUniBreadcrumbItemElement extends Components.UniBreadcrumbItem, HTMLStencilElement {
+    }
+    var HTMLUniBreadcrumbItemElement: {
+        prototype: HTMLUniBreadcrumbItemElement;
+        new (): HTMLUniBreadcrumbItemElement;
     };
     interface HTMLUniButtonElement extends Components.UniButton, HTMLStencilElement {
     }
@@ -105,6 +139,12 @@ declare global {
     var HTMLUniDividerElement: {
         prototype: HTMLUniDividerElement;
         new (): HTMLUniDividerElement;
+    };
+    interface HTMLUniDrawerElement extends Components.UniDrawer, HTMLStencilElement {
+    }
+    var HTMLUniDrawerElement: {
+        prototype: HTMLUniDrawerElement;
+        new (): HTMLUniDrawerElement;
     };
     interface HTMLUniEmptyElement extends Components.UniEmpty, HTMLStencilElement {
     }
@@ -144,12 +184,15 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "uni-badge": HTMLUniBadgeElement;
+        "uni-breadcrumb": HTMLUniBreadcrumbElement;
+        "uni-breadcrumb-item": HTMLUniBreadcrumbItemElement;
         "uni-button": HTMLUniButtonElement;
         "uni-card": HTMLUniCardElement;
         "uni-collapse": HTMLUniCollapseElement;
         "uni-collapse-item": HTMLUniCollapseItemElement;
         "uni-dialog": HTMLUniDialogElement;
         "uni-divider": HTMLUniDividerElement;
+        "uni-drawer": HTMLUniDrawerElement;
         "uni-empty": HTMLUniEmptyElement;
         "uni-pager": HTMLUniPagerElement;
         "uni-tag": HTMLUniTagElement;
@@ -164,6 +207,14 @@ declare namespace LocalJSX {
         "max"?: string;
         "type"?: string;
         "value"?: string;
+    }
+    interface UniBreadcrumb {
+        "separator"?: string;
+    }
+    interface UniBreadcrumbItem {
+        "blank"?: boolean;
+        "href"?: string;
+        "separator"?: string;
     }
     interface UniButton {
         "type"?: string;
@@ -185,6 +236,14 @@ declare namespace LocalJSX {
         "visible"?: Boolean;
     }
     interface UniDivider {
+    }
+    interface UniDrawer {
+        "maskClosable"?: boolean;
+        "onClosed"?: (event: UniDrawerCustomEvent<any>) => void;
+        "placement"?: string;
+        "showHeader"?: boolean;
+        "visible"?: Boolean;
+        "width"?: string;
     }
     interface UniEmpty {
     }
@@ -210,12 +269,15 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "uni-badge": UniBadge;
+        "uni-breadcrumb": UniBreadcrumb;
+        "uni-breadcrumb-item": UniBreadcrumbItem;
         "uni-button": UniButton;
         "uni-card": UniCard;
         "uni-collapse": UniCollapse;
         "uni-collapse-item": UniCollapseItem;
         "uni-dialog": UniDialog;
         "uni-divider": UniDivider;
+        "uni-drawer": UniDrawer;
         "uni-empty": UniEmpty;
         "uni-pager": UniPager;
         "uni-tag": UniTag;
@@ -229,12 +291,15 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "uni-badge": LocalJSX.UniBadge & JSXBase.HTMLAttributes<HTMLUniBadgeElement>;
+            "uni-breadcrumb": LocalJSX.UniBreadcrumb & JSXBase.HTMLAttributes<HTMLUniBreadcrumbElement>;
+            "uni-breadcrumb-item": LocalJSX.UniBreadcrumbItem & JSXBase.HTMLAttributes<HTMLUniBreadcrumbItemElement>;
             "uni-button": LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
             "uni-card": LocalJSX.UniCard & JSXBase.HTMLAttributes<HTMLUniCardElement>;
             "uni-collapse": LocalJSX.UniCollapse & JSXBase.HTMLAttributes<HTMLUniCollapseElement>;
             "uni-collapse-item": LocalJSX.UniCollapseItem & JSXBase.HTMLAttributes<HTMLUniCollapseItemElement>;
             "uni-dialog": LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
             "uni-divider": LocalJSX.UniDivider & JSXBase.HTMLAttributes<HTMLUniDividerElement>;
+            "uni-drawer": LocalJSX.UniDrawer & JSXBase.HTMLAttributes<HTMLUniDrawerElement>;
             "uni-empty": LocalJSX.UniEmpty & JSXBase.HTMLAttributes<HTMLUniEmptyElement>;
             "uni-pager": LocalJSX.UniPager & JSXBase.HTMLAttributes<HTMLUniPagerElement>;
             "uni-tag": LocalJSX.UniTag & JSXBase.HTMLAttributes<HTMLUniTagElement>;

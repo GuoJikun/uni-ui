@@ -16,7 +16,7 @@
       width: 800px;
       margin: 0 auto;
       background-color: #efefef;
-      min-height: 100vh;
+      height: 100vh;
     }
 
     p,
@@ -40,32 +40,25 @@
     .uni-margin-left-large {
       margin-left: 12px;
     }
+
+    .test::part(separator) {
+      color: red;
+    }
   </style>
   <script type="module" src="/build/uni.esm.js"></script>
   <script nomodule src="/build/uni.js"></script>
 </head>
 
 <body>
-  <div class="uni-margin-top"></div>
-  <button id="btn">dialog</button>
-  <uni-dialog header="这是title" id="test">
-    <div slot="header">这是title部分</div>
-    这是body部分
-  </uni-dialog>
+  <uni-breadcrumb separator=">">
+    <uni-breadcrumb-item class="test" href="https://www.baidu.com">首页</uni-breadcrumb-item>
+    <uni-breadcrumb-item href="https://www.baidu.com" blank>档案中心</uni-breadcrumb-item>
+    <uni-breadcrumb-item href="https://www.baidu.com" blank>汽车档案</uni-breadcrumb-item>
+  </uni-breadcrumb>
 </body>
 
 <script>
-  document.querySelector('#btn').addEventListener('click', () => {
-    document.querySelector('#test').open()
-  })
 
-  document.querySelector('#test').addEventListener('closed', (ev) => {
-    console.log(ev.detail)
-  })
-
-  document.querySelector('#test').addEventListener('sure', (ev) => {
-    console.log('sure事件')
-  })
 </script>
 
 </html>
