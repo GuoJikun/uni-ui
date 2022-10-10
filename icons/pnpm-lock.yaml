@@ -1,41 +1,20 @@
 lockfileVersion: 5.4
 
-importers:
+specifiers:
+  '@stencil/core': ^2.13.0
+  '@types/jest': ^27.0.3
+  jest: ^27.4.5
+  jest-cli: ^27.4.5
+  puppeteer: ^10.0.0
 
-  .:
-    specifiers: {}
+dependencies:
+  '@stencil/core': 2.18.1
 
-  components:
-    specifiers:
-      '@popperjs/core': ^2.11.6
-      '@stencil/core': ^2.13.0
-      '@types/jest': ^27.0.3
-      jest: ^27.4.5
-      jest-cli: ^27.4.5
-      puppeteer: ^10.0.0
-    dependencies:
-      '@popperjs/core': 2.11.6
-      '@stencil/core': 2.18.1
-    devDependencies:
-      '@types/jest': 27.5.2
-      jest: 27.5.1
-      jest-cli: 27.5.1
-      puppeteer: 10.4.0
-
-  icons:
-    specifiers:
-      '@stencil/core': ^2.13.0
-      '@types/jest': ^27.0.3
-      jest: ^27.4.5
-      jest-cli: ^27.4.5
-      puppeteer: ^10.0.0
-    dependencies:
-      '@stencil/core': 2.18.1
-    devDependencies:
-      '@types/jest': 27.5.2
-      jest: 27.5.1
-      jest-cli: 27.5.1
-      puppeteer: 10.4.0
+devDependencies:
+  '@types/jest': 27.5.2
+  jest: 27.5.1
+  jest-cli: 27.5.1
+  puppeteer: 10.4.0
 
 packages:
 
@@ -612,10 +591,6 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
-
-  /@popperjs/core/2.11.6:
-    resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
-    dev: false
 
   /@sinonjs/commons/1.8.3:
     resolution: {integrity: sha512-xkNcLAn/wZaX14RPlwizcKicDk9G3F8m2nU3L7Ukm5zBgTwiT0wsoFAHx9Jq56fJA1z/7uKGtCRu16sOUCLIHQ==}
