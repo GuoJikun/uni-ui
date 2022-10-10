@@ -11,9 +11,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "jsx": "react",
-    "jsxFactory": "h",
-    "baseUrl": "."
+    "jsxFactory": "h"
   },
-  "include": ["src"],
+  "include": ["/icons/src", "/components/src"],
   "exclude": ["node_modules"]
 }

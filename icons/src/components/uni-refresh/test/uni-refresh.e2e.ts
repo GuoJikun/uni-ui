@@ -1,11 +1,11 @@
 import { newE2EPage } from '@stencil/core/testing';
 
-describe('uni-icon', () => {
+describe('uni-refresh', () => {
   it('renders', async () => {
     const page = await newE2EPage();
-    await page.setContent('<uni-icon></uni-icon>');
+    await page.setContent('<uni-refresh></uni-refresh>');
 
-    const element = await page.find('uni-icon');
+    const element = await page.find('uni-refresh');
     expect(element).toHaveClass('hydrated');
   });
 });

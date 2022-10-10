@@ -1,18 +1,18 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { UniIcon } from '../uni-icon';
+import { UniArrowUp } from '../uni-arrow-up';
 
-describe('uni-icon', () => {
+describe('uni-arrow-up', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [UniIcon],
-      html: `<uni-icon></uni-icon>`,
+      components: [UniArrowUp],
+      html: `<uni-arrow-up></uni-arrow-up>`,
     });
     expect(page.root).toEqualHtml(`
-      <uni-icon>
+      <uni-arrow-up>
         <mock:shadow-root>
           <slot></slot>
         </mock:shadow-root>
-      </uni-icon>
+      </uni-arrow-up>
     `);
   });
 });
