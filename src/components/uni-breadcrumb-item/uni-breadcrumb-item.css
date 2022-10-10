@@ -13,6 +13,7 @@
 
 .content {
   cursor: default;
+  transition: color 0.15s;
 }
 
 :host([href]) .content:hover {

@@ -1,4 +1,5 @@
 import { Component, Host, h, Prop, Element } from '@stencil/core';
+import { getType } from '../../utils/utils';
 
 @Component({
   tag: 'uni-breadcrumb',
@@ -27,7 +28,7 @@ export class UniBreadcrumb {
     const childList = this.el.children;
     for (const item in childList) {
       const tmp = childList[item];
-      if (Object.prototype.toString.call(tmp) === '[object HTMLElement]') {
+      if (getType(tmp) === 'HTMLElement') {
         tmp.setAttribute('separator', this.separator);
       }
     }
