@@ -13,9 +13,11 @@ importers:
       jest: ^27.4.5
       jest-cli: ^27.4.5
       puppeteer: ^10.0.0
+      uni-icons: workspace:^0.0.1
     dependencies:
       '@popperjs/core': 2.11.6
       '@stencil/core': 2.18.1
+      uni-icons: link:../icons
     devDependencies:
       '@types/jest': 27.5.2
       jest: 27.5.1

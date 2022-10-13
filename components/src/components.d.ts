@@ -35,6 +35,18 @@ export namespace Components {
         "index": string;
         "name": string;
     }
+    interface UniDescription {
+        "border": boolean;
+        "columns": number;
+        "gutter": string;
+        "header": string;
+        "labelWidth": string;
+    }
+    interface UniDescriptionItem {
+        "gutter": string;
+        "label": string;
+        "labelWidth": string;
+    }
     interface UniDialog {
         "close": () => Promise<void>;
         "open": () => Promise<void>;
@@ -71,6 +83,12 @@ export namespace Components {
     interface UniTip {
         "name": string;
         "type": string;
+    }
+    interface UniTooltip {
+        "content": string;
+        "placement": string;
+        "theme": string;
+        "visible": boolean;
     }
 }
 export interface UniDialogCustomEvent<T> extends CustomEvent<T> {
@@ -128,6 +146,18 @@ declare global {
         prototype: HTMLUniCollapseItemElement;
         new (): HTMLUniCollapseItemElement;
     };
+    interface HTMLUniDescriptionElement extends Components.UniDescription, HTMLStencilElement {
+    }
+    var HTMLUniDescriptionElement: {
+        prototype: HTMLUniDescriptionElement;
+        new (): HTMLUniDescriptionElement;
+    };
+    interface HTMLUniDescriptionItemElement extends Components.UniDescriptionItem, HTMLStencilElement {
+    }
+    var HTMLUniDescriptionItemElement: {
+        prototype: HTMLUniDescriptionItemElement;
+        new (): HTMLUniDescriptionItemElement;
+    };
     interface HTMLUniDialogElement extends Components.UniDialog, HTMLStencilElement {
     }
     var HTMLUniDialogElement: {
@@ -182,6 +212,12 @@ declare global {
         prototype: HTMLUniTipElement;
         new (): HTMLUniTipElement;
     };
+    interface HTMLUniTooltipElement extends Components.UniTooltip, HTMLStencilElement {
+    }
+    var HTMLUniTooltipElement: {
+        prototype: HTMLUniTooltipElement;
+        new (): HTMLUniTooltipElement;
+    };
     interface HTMLElementTagNameMap {
         "uni-badge": HTMLUniBadgeElement;
         "uni-breadcrumb": HTMLUniBreadcrumbElement;
@@ -190,6 +226,8 @@ declare global {
         "uni-card": HTMLUniCardElement;
         "uni-collapse": HTMLUniCollapseElement;
         "uni-collapse-item": HTMLUniCollapseItemElement;
+        "uni-description": HTMLUniDescriptionElement;
+        "uni-description-item": HTMLUniDescriptionItemElement;
         "uni-dialog": HTMLUniDialogElement;
         "uni-divider": HTMLUniDividerElement;
         "uni-drawer": HTMLUniDrawerElement;
@@ -199,6 +237,7 @@ declare global {
         "uni-timeline": HTMLUniTimelineElement;
         "uni-timeline-item": HTMLUniTimelineItemElement;
         "uni-tip": HTMLUniTipElement;
+        "uni-tooltip": HTMLUniTooltipElement;
     }
 }
 declare namespace LocalJSX {
@@ -229,6 +268,18 @@ declare namespace LocalJSX {
         "active"?: string;
         "index"?: string;
         "name"?: string;
+    }
+    interface UniDescription {
+        "border"?: boolean;
+        "columns"?: number;
+        "gutter"?: string;
+        "header"?: string;
+        "labelWidth"?: string;
+    }
+    interface UniDescriptionItem {
+        "gutter"?: string;
+        "label"?: string;
+        "labelWidth"?: string;
     }
     interface UniDialog {
         "onClosed"?: (event: UniDialogCustomEvent<string>) => void;
@@ -267,6 +318,12 @@ declare namespace LocalJSX {
         "name"?: string;
         "type"?: string;
     }
+    interface UniTooltip {
+        "content"?: string;
+        "placement"?: string;
+        "theme"?: string;
+        "visible"?: boolean;
+    }
     interface IntrinsicElements {
         "uni-badge": UniBadge;
         "uni-breadcrumb": UniBreadcrumb;
@@ -275,6 +332,8 @@ declare namespace LocalJSX {
         "uni-card": UniCard;
         "uni-collapse": UniCollapse;
         "uni-collapse-item": UniCollapseItem;
+        "uni-description": UniDescription;
+        "uni-description-item": UniDescriptionItem;
         "uni-dialog": UniDialog;
         "uni-divider": UniDivider;
         "uni-drawer": UniDrawer;
@@ -284,6 +343,7 @@ declare namespace LocalJSX {
         "uni-timeline": UniTimeline;
         "uni-timeline-item": UniTimelineItem;
         "uni-tip": UniTip;
+        "uni-tooltip": UniTooltip;
     }
 }
 export { LocalJSX as JSX };
@@ -297,6 +357,8 @@ declare module "@stencil/core" {
             "uni-card": LocalJSX.UniCard & JSXBase.HTMLAttributes<HTMLUniCardElement>;
             "uni-collapse": LocalJSX.UniCollapse & JSXBase.HTMLAttributes<HTMLUniCollapseElement>;
             "uni-collapse-item": LocalJSX.UniCollapseItem & JSXBase.HTMLAttributes<HTMLUniCollapseItemElement>;
+            "uni-description": LocalJSX.UniDescription & JSXBase.HTMLAttributes<HTMLUniDescriptionElement>;
+            "uni-description-item": LocalJSX.UniDescriptionItem & JSXBase.HTMLAttributes<HTMLUniDescriptionItemElement>;
             "uni-dialog": LocalJSX.UniDialog & JSXBase.HTMLAttributes<HTMLUniDialogElement>;
             "uni-divider": LocalJSX.UniDivider & JSXBase.HTMLAttributes<HTMLUniDividerElement>;
             "uni-drawer": LocalJSX.UniDrawer & JSXBase.HTMLAttributes<HTMLUniDrawerElement>;
@@ -306,6 +368,7 @@ declare module "@stencil/core" {
             "uni-timeline": LocalJSX.UniTimeline & JSXBase.HTMLAttributes<HTMLUniTimelineElement>;
             "uni-timeline-item": LocalJSX.UniTimelineItem & JSXBase.HTMLAttributes<HTMLUniTimelineItemElement>;
             "uni-tip": LocalJSX.UniTip & JSXBase.HTMLAttributes<HTMLUniTipElement>;
+            "uni-tooltip": LocalJSX.UniTooltip & JSXBase.HTMLAttributes<HTMLUniTooltipElement>;
         }
     }
 }

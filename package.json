@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:component": "pnpm --filter uni-ui run start",
+    "dev:icon": "pnpm --filter uni-icons run start",
+    "dev": "pnpm run dev:icon & pnpm run dev:component",
+    "build:component": "pnpm --filter uni-ui run build",
+    "build:icon": "pnpm --filter uni-icons run build",
+    "build": "pnpm run build:icon & pnpm run build:component",
+    "g": "pnpm --filter uni-ui run generate",
+    "g:icon": "pnpm --filter uni-icons run generate"
   },
   "keywords": [],
   "author": "",
