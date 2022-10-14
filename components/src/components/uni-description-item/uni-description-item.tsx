@@ -25,6 +25,13 @@ export class UniDescriptionItem {
   })
   gutter: string;
 
+  @Prop({
+    attribute: 'columns',
+    mutable: true,
+    reflect: true,
+  })
+  columns: string = '3';
+
   render() {
     return (
       <Host>

@@ -53,11 +53,10 @@ export class UniDescription {
 
   componentDidLoad() {
     const list = this.el.querySelectorAll('uni-description-item');
-    console.log(list);
-    for (let index = 0; index < list.length; index++) {
+    const len = list.length;
+    for (let index = 0; index < len; index++) {
       const element = list[index];
       const curLabelWidth = element.getAttribute('label-width');
-      // element.style.width = `calc(${(1 / this.columns) * 100}% - ${parseFloat(this.gutter)}px)`;
       element.style.width = `${(1 / this.columns) * 100}%`;
       const gutter = `${parseInt(this.gutter) / 2}px`;
       element.style.paddingLeft = gutter;
@@ -66,10 +65,17 @@ export class UniDescription {
       if (curLabelWidth === '30%' && this.labelWidth) {
         element.setAttribute('label-width', this.labelWidth);
       }
+      const curIndex = index + 1;
+      if (curIndex % this.columns === 1) {
+        element.style.borderLeft = 'none';
+      }
+
+      if (index < this.columns) {
+        element.style.borderTop = 'none';
+      }
       if (this.border) {
         element.setAttribute('border', '');
       }
-      console.log(element.getAttribute('label-width'));
     }
   }
 }

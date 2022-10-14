@@ -43,6 +43,7 @@ export namespace Components {
         "labelWidth": string;
     }
     interface UniDescriptionItem {
+        "columns": string;
         "gutter": string;
         "label": string;
         "labelWidth": string;
@@ -277,6 +278,7 @@ declare namespace LocalJSX {
         "labelWidth"?: string;
     }
     interface UniDescriptionItem {
+        "columns"?: string;
         "gutter"?: string;
         "label"?: string;
         "labelWidth"?: string;
