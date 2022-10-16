@@ -22,6 +22,9 @@ export namespace Components {
         "setSeparator": (val: string) => Promise<void>;
     }
     interface UniButton {
+        "loading": boolean;
+        "round": boolean;
+        "theme": string;
         "type": string;
     }
     interface UniCard {
@@ -276,6 +279,9 @@ declare namespace LocalJSX {
         "separator"?: string;
     }
     interface UniButton {
+        "loading"?: boolean;
+        "round"?: boolean;
+        "theme"?: string;
         "type"?: string;
     }
     interface UniCard {
