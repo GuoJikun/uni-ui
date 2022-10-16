@@ -27,6 +27,9 @@ export namespace Components {
     interface UniCard {
         "header": string;
     }
+    interface UniCol {
+        "span": string;
+    }
     interface UniCollapse {
         "active": string;
     }
@@ -69,6 +72,8 @@ export namespace Components {
     interface UniPager {
         "defaultPage": string;
         "layout": string;
+    }
+    interface UniRow {
     }
     interface UniTag {
         "size": string;
@@ -135,6 +140,12 @@ declare global {
         prototype: HTMLUniCardElement;
         new (): HTMLUniCardElement;
     };
+    interface HTMLUniColElement extends Components.UniCol, HTMLStencilElement {
+    }
+    var HTMLUniColElement: {
+        prototype: HTMLUniColElement;
+        new (): HTMLUniColElement;
+    };
     interface HTMLUniCollapseElement extends Components.UniCollapse, HTMLStencilElement {
     }
     var HTMLUniCollapseElement: {
@@ -189,6 +200,12 @@ declare global {
         prototype: HTMLUniPagerElement;
         new (): HTMLUniPagerElement;
     };
+    interface HTMLUniRowElement extends Components.UniRow, HTMLStencilElement {
+    }
+    var HTMLUniRowElement: {
+        prototype: HTMLUniRowElement;
+        new (): HTMLUniRowElement;
+    };
     interface HTMLUniTagElement extends Components.UniTag, HTMLStencilElement {
     }
     var HTMLUniTagElement: {
@@ -225,6 +242,7 @@ declare global {
         "uni-breadcrumb-item": HTMLUniBreadcrumbItemElement;
         "uni-button": HTMLUniButtonElement;
         "uni-card": HTMLUniCardElement;
+        "uni-col": HTMLUniColElement;
         "uni-collapse": HTMLUniCollapseElement;
         "uni-collapse-item": HTMLUniCollapseItemElement;
         "uni-description": HTMLUniDescriptionElement;
@@ -234,6 +252,7 @@ declare global {
         "uni-drawer": HTMLUniDrawerElement;
         "uni-empty": HTMLUniEmptyElement;
         "uni-pager": HTMLUniPagerElement;
+        "uni-row": HTMLUniRowElement;
         "uni-tag": HTMLUniTagElement;
         "uni-timeline": HTMLUniTimelineElement;
         "uni-timeline-item": HTMLUniTimelineItemElement;
@@ -261,6 +280,9 @@ declare namespace LocalJSX {
     }
     interface UniCard {
         "header"?: string;
+    }
+    interface UniCol {
+        "span"?: string;
     }
     interface UniCollapse {
         "active"?: string;
@@ -305,6 +327,8 @@ declare namespace LocalJSX {
         "layout"?: string;
         "onPageChange"?: (event: UniPagerCustomEvent<string>) => void;
     }
+    interface UniRow {
+    }
     interface UniTag {
         "size"?: string;
         "theme"?: string;
@@ -332,6 +356,7 @@ declare namespace LocalJSX {
         "uni-breadcrumb-item": UniBreadcrumbItem;
         "uni-button": UniButton;
         "uni-card": UniCard;
+        "uni-col": UniCol;
         "uni-collapse": UniCollapse;
         "uni-collapse-item": UniCollapseItem;
         "uni-description": UniDescription;
@@ -341,6 +366,7 @@ declare namespace LocalJSX {
         "uni-drawer": UniDrawer;
         "uni-empty": UniEmpty;
         "uni-pager": UniPager;
+        "uni-row": UniRow;
         "uni-tag": UniTag;
         "uni-timeline": UniTimeline;
         "uni-timeline-item": UniTimelineItem;
@@ -357,6 +383,7 @@ declare module "@stencil/core" {
             "uni-breadcrumb-item": LocalJSX.UniBreadcrumbItem & JSXBase.HTMLAttributes<HTMLUniBreadcrumbItemElement>;
             "uni-button": LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
             "uni-card": LocalJSX.UniCard & JSXBase.HTMLAttributes<HTMLUniCardElement>;
+            "uni-col": LocalJSX.UniCol & JSXBase.HTMLAttributes<HTMLUniColElement>;
             "uni-collapse": LocalJSX.UniCollapse & JSXBase.HTMLAttributes<HTMLUniCollapseElement>;
             "uni-collapse-item": LocalJSX.UniCollapseItem & JSXBase.HTMLAttributes<HTMLUniCollapseItemElement>;
             "uni-description": LocalJSX.UniDescription & JSXBase.HTMLAttributes<HTMLUniDescriptionElement>;
@@ -366,6 +393,7 @@ declare module "@stencil/core" {
             "uni-drawer": LocalJSX.UniDrawer & JSXBase.HTMLAttributes<HTMLUniDrawerElement>;
             "uni-empty": LocalJSX.UniEmpty & JSXBase.HTMLAttributes<HTMLUniEmptyElement>;
             "uni-pager": LocalJSX.UniPager & JSXBase.HTMLAttributes<HTMLUniPagerElement>;
+            "uni-row": LocalJSX.UniRow & JSXBase.HTMLAttributes<HTMLUniRowElement>;
             "uni-tag": LocalJSX.UniTag & JSXBase.HTMLAttributes<HTMLUniTagElement>;
             "uni-timeline": LocalJSX.UniTimeline & JSXBase.HTMLAttributes<HTMLUniTimelineElement>;
             "uni-timeline-item": LocalJSX.UniTimelineItem & JSXBase.HTMLAttributes<HTMLUniTimelineItemElement>;

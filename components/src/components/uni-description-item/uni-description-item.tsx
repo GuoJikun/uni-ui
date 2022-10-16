@@ -35,7 +35,7 @@ export class UniDescriptionItem {
   render() {
     return (
       <Host>
-        <div class="label" style={{ width: this.labelWidth }}>
+        <div class="label" style={{ flex: `0 0 ${this.labelWidth}` }}>
           <slot name="label">{this.label}</slot>
         </div>
         <div class="content">
