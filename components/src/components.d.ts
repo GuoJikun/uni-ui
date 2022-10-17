@@ -30,6 +30,11 @@ export namespace Components {
     interface UniCard {
         "header": string;
     }
+    interface UniCarousel {
+        "defaultActive": string;
+    }
+    interface UniCarouselItem {
+    }
     interface UniCol {
         "span": string;
     }
@@ -143,6 +148,18 @@ declare global {
         prototype: HTMLUniCardElement;
         new (): HTMLUniCardElement;
     };
+    interface HTMLUniCarouselElement extends Components.UniCarousel, HTMLStencilElement {
+    }
+    var HTMLUniCarouselElement: {
+        prototype: HTMLUniCarouselElement;
+        new (): HTMLUniCarouselElement;
+    };
+    interface HTMLUniCarouselItemElement extends Components.UniCarouselItem, HTMLStencilElement {
+    }
+    var HTMLUniCarouselItemElement: {
+        prototype: HTMLUniCarouselItemElement;
+        new (): HTMLUniCarouselItemElement;
+    };
     interface HTMLUniColElement extends Components.UniCol, HTMLStencilElement {
     }
     var HTMLUniColElement: {
@@ -245,6 +262,8 @@ declare global {
         "uni-breadcrumb-item": HTMLUniBreadcrumbItemElement;
         "uni-button": HTMLUniButtonElement;
         "uni-card": HTMLUniCardElement;
+        "uni-carousel": HTMLUniCarouselElement;
+        "uni-carousel-item": HTMLUniCarouselItemElement;
         "uni-col": HTMLUniColElement;
         "uni-collapse": HTMLUniCollapseElement;
         "uni-collapse-item": HTMLUniCollapseItemElement;
@@ -286,6 +305,11 @@ declare namespace LocalJSX {
     }
     interface UniCard {
         "header"?: string;
+    }
+    interface UniCarousel {
+        "defaultActive"?: string;
+    }
+    interface UniCarouselItem {
     }
     interface UniCol {
         "span"?: string;
@@ -362,6 +386,8 @@ declare namespace LocalJSX {
         "uni-breadcrumb-item": UniBreadcrumbItem;
         "uni-button": UniButton;
         "uni-card": UniCard;
+        "uni-carousel": UniCarousel;
+        "uni-carousel-item": UniCarouselItem;
         "uni-col": UniCol;
         "uni-collapse": UniCollapse;
         "uni-collapse-item": UniCollapseItem;
@@ -389,6 +415,8 @@ declare module "@stencil/core" {
             "uni-breadcrumb-item": LocalJSX.UniBreadcrumbItem & JSXBase.HTMLAttributes<HTMLUniBreadcrumbItemElement>;
             "uni-button": LocalJSX.UniButton & JSXBase.HTMLAttributes<HTMLUniButtonElement>;
             "uni-card": LocalJSX.UniCard & JSXBase.HTMLAttributes<HTMLUniCardElement>;
+            "uni-carousel": LocalJSX.UniCarousel & JSXBase.HTMLAttributes<HTMLUniCarouselElement>;
+            "uni-carousel-item": LocalJSX.UniCarouselItem & JSXBase.HTMLAttributes<HTMLUniCarouselItemElement>;
             "uni-col": LocalJSX.UniCol & JSXBase.HTMLAttributes<HTMLUniColElement>;
             "uni-collapse": LocalJSX.UniCollapse & JSXBase.HTMLAttributes<HTMLUniCollapseElement>;
             "uni-collapse-item": LocalJSX.UniCollapseItem & JSXBase.HTMLAttributes<HTMLUniCollapseItemElement>;
