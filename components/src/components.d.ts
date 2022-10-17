@@ -23,8 +23,8 @@ export namespace Components {
     }
     interface UniButton {
         "loading": boolean;
+        "plain": boolean;
         "round": boolean;
-        "theme": string;
         "type": string;
     }
     interface UniCard {
@@ -280,8 +280,8 @@ declare namespace LocalJSX {
     }
     interface UniButton {
         "loading"?: boolean;
+        "plain"?: boolean;
         "round"?: boolean;
-        "theme"?: string;
         "type"?: string;
     }
     interface UniCard {
