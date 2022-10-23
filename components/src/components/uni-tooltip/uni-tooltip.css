@@ -1,5 +1,6 @@
 :host {
   display: inline-block;
+  position: relative;
 }
 
 .ivy-tooltip-content {
@@ -10,6 +11,8 @@
   font-size: 13px;
   border-radius: 4px;
   display: none;
+  position: absolute;
+  z-index: 10;
 }
 
 .ivy-tooltip-arrow,
@@ -30,22 +33,50 @@
   transform: rotate(45deg);
 }
 
-.ivy-tooltip-content[data-popper-placement^='top'] > .ivy-tooltip-arrow {
+:host([placement^='top']) .ivy-tooltip-content > .ivy-tooltip-arrow {
   bottom: -4px;
 }
+:host([placement='top-end']) .ivy-tooltip-content > .ivy-tooltip-arrow {
+  right: 8px;
+}
 
-.ivy-tooltip-content[data-popper-placement^='bottom'] > .ivy-tooltip-arrow {
+:host([placement^='bottom']) .ivy-tooltip-content > .ivy-tooltip-arrow {
   top: -4px;
 }
 
-.ivy-tooltip-content[data-popper-placement^='left'] > .ivy-tooltip-arrow {
+:host([placement^='left']) .ivy-tooltip-content > .ivy-tooltip-arrow {
   right: -4px;
 }
 
-.ivy-tooltip-content[data-popper-placement^='right'] > .ivy-tooltip-arrow {
+:host([placement^='right']) .ivy-tooltip-content > .ivy-tooltip-arrow {
   left: -4px;
 }
 
 :host([show]) .ivy-tooltip-content {
   display: block;
+}
+
+:host([placement^='top']) .ivy-tooltip-content {
+  top: 0;
+  transform: translateY(calc(-100% - 10px));
+}
+:host([placement='top-end']) .ivy-tooltip-content {
+  right: 0;
+}
+
+:host([placement^='bottom']) .ivy-tooltip-content {
+  bottom: 0;
+  transform: translateY(calc(100% + 10px));
+}
+
+:host([placement^='left']) .ivy-tooltip-content {
+  top: 0;
+  left: 0;
+  transform: translateX(calc(-100% - 10px));
+}
+
+:host([placement^='right']) .ivy-tooltip-content {
+  top: 0;
+  right: 0;
+  transform: translateX(calc(100% + 10px));
 }

@@ -1,5 +1,4 @@
 import { Component, Host, h, Prop, Watch, Element } from '@stencil/core';
-import { createPopper, Placement } from '@popperjs/core';
 
 @Component({
   tag: 'uni-tooltip',
@@ -7,10 +6,7 @@ import { createPopper, Placement } from '@popperjs/core';
   shadow: true,
 })
 export class UniTooltip {
-  $popper = null;
-  constructor() {
-    this.$popper = null;
-  }
+  timer = null;
 
   @Prop({
     attribute: 'show',
@@ -56,37 +52,26 @@ export class UniTooltip {
     }
   }
 
+  @Prop({
+    reflect: true,
+    mutable: true,
+  })
+  delay: string = '10';
+
   @Element() el: HTMLElement;
 
   show() {
-    // Make the tooltip visible
-    this.visible = true;
-
-    // Enable the event listeners
-    if (this.$popper == null) {
-      return;
+    if (this.timer === null) {
+      clearTimeout(this.timer);
+      this.timer = null;
     }
-    this.$popper.setOptions(options => ({
-      ...options,
-      modifiers: [...options.modifiers, { name: 'eventListeners', enabled: true }],
-    }));
-
-    // Update its position
-    this.$popper.update();
+    this.timer = setTimeout(() => {
+      this.visible = true;
+    }, parseInt(this.delay) || 10);
   }
 
   hide() {
-    // Hide the tooltip
     this.visible = false;
-
-    // Disable the event listeners
-    if (this.$popper == null) {
-      return;
-    }
-    this.$popper.setOptions(options => ({
-      ...options,
-      modifiers: [...options.modifiers, { name: 'eventListeners', enabled: false }],
-    }));
   }
 
   render() {
@@ -103,79 +88,5 @@ export class UniTooltip {
         </div>
       </Host>
     );
-  }
-
-  componentDidLoad() {
-    const ref: HTMLElement = this.el.shadowRoot.querySelector('.uni-tooltip-ref');
-    const content: HTMLElement = this.el.shadowRoot.querySelector('.ivy-tooltip-content');
-    const arrow: HTMLElement = this.el.shadowRoot.querySelector('.ivy-tooltip-arrow');
-    if (ref && content)
-      this.$popper = createPopper(ref, content, {
-        placement: this.placement as Placement,
-        modifiers: [
-          {
-            name: 'preventOverflow',
-            options: {
-              rootBoundary: 'document',
-            },
-          },
-          {
-            name: 'flip',
-            options: {
-              rootBoundary: 'document',
-            },
-          },
-          {
-            name: 'arrow',
-            options: {
-              element: arrow,
-              padding: ({ reference, placement }) => {
-                const placementList = placement.split('-');
-                const mainPlacement = placementList[0];
-                const secondPlacement = placementList[1] || null;
-                if (['top', 'bottom'].includes(mainPlacement)) {
-                  if (secondPlacement === 'start') {
-                    return 16;
-                  } else if (secondPlacement === 'end') {
-                    return 16;
-                  } else {
-                    return 16;
-                  }
-                } else if (['left', 'right'].includes(mainPlacement)) {
-                  if (secondPlacement === 'end') {
-                    return reference.height - 16;
-                  } else {
-                    return 16;
-                  }
-                } else {
-                  return 16;
-                }
-              },
-            },
-          },
-          {
-            name: 'offset',
-            options: {
-              offset: ({ placement }) => (/^(top)|(bottom)/.test(placement) ? [0, 8] : [8, 0]),
-            },
-          },
-          // {
-          //   name: 'applyStyles',
-          //   phase: 'write',
-          //   fn: ctx => {
-          //     const { state } = ctx;
-          //     console.log(ctx, state);
-          //     console.log(getComputedStyle(state.elements.popper)['width']);
-          //     const placement = state.placement;
-
-          //     if (placement === 'top' || placement === 'bottom') {
-          //       state.styles.arrow.left = '50%';
-          //     }
-
-          //     return state;
-          //   },
-          // },
-        ],
-      });
   }
 }

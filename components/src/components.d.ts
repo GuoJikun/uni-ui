@@ -100,6 +100,7 @@ export namespace Components {
     }
     interface UniTooltip {
         "content": string;
+        "delay": string;
         "placement": string;
         "theme": string;
         "visible": boolean;
@@ -376,6 +377,7 @@ declare namespace LocalJSX {
     }
     interface UniTooltip {
         "content"?: string;
+        "delay"?: string;
         "placement"?: string;
         "theme"?: string;
         "visible"?: boolean;
