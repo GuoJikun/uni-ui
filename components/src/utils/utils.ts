@@ -31,3 +31,13 @@ export const getBrotherElements = (self: HTMLElement, isSelf: Boolean = false) =
   }
   return list;
 };
+
+/**
+ * 查找某元素下符合条件的所有元素
+ * @param self 当前元素-根元素
+ * @param tagName css选择器
+ * @returns
+ */
+export const getChildrenComponent = (self: HTMLElement, tagName: string) => {
+  return self.querySelectorAll(tagName) as NodeListOf<Element>;
+};

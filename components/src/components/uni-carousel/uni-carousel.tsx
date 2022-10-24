@@ -29,7 +29,6 @@ export class UniCarousel {
       const index = target.getAttribute('index');
       const wrap = this.root.shadowRoot.querySelector('.wrap');
       const children = wrap.children;
-      console.log(wrap, index, children);
       (wrap as any).style.transform = `translateX(-${(Number(index) / children.length) * 100}%)`;
       target.setAttribute('active', '');
       const itemList = getBrotherElements(target);
