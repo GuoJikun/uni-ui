@@ -1,1 +1,1 @@
-module.exports = ["uni-arrow-up"]
+module.exports = ["uni-arrow-up","uni-refresh"]
